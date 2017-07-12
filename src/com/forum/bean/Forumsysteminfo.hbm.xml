@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Forumsysteminfo" 
+    table="FORUMSYSTEMINFO"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="forumsystemid"
+        type="java.math.BigDecimal"
+        column="FORUMSYSTEMID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="forumversion"
+        type="java.lang.String"
+        column="FORUMVERSION"
+        not-null="true"
+        unique="true"
+        length="50"
+    />
+    <property
+        name="forumname"
+        type="java.lang.String"
+        column="FORUMNAME"
+        unique="true"
+        length="100"
+    />
+    <property
+        name="forumaddress"
+        type="java.lang.String"
+        column="FORUMADDRESS"
+        not-null="true"
+        length="256"
+    />
+    <property
+        name="administratorname"
+        type="java.lang.String"
+        column="ADMINISTRATORNAME"
+        not-null="true"
+        length="40"
+    />
+    <property
+        name="administratorpwd"
+        type="java.lang.String"
+        column="ADMINISTRATORPWD"
+        not-null="true"
+        length="40"
+    />
+    <property
+        name="adminnum"
+        type="java.math.BigDecimal"
+        column="ADMINNUM"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="moderatornum"
+        type="java.math.BigDecimal"
+        column="MODERATORNUM"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="usernum"
+        type="java.math.BigDecimal"
+        column="USERNUM"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="maxonlineusernum"
+        type="java.math.BigDecimal"
+        column="MAXONLINEUSERNUM"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="maxonlinedate"
+        type="java.sql.Timestamp"
+        column="MAXONLINEDATE"
+        length="7"
+    />
+    <property
+        name="singlepagepostnum"
+        type="java.math.BigDecimal"
+        column="SINGLEPAGEPOSTNUM"
+        length="22"
+    />
+    <property
+        name="maxdailypostnum"
+        type="java.math.BigDecimal"
+        column="MAXDAILYPOSTNUM"
+        length="22"
+    />
+    <property
+        name="maxdailypostdate"
+        type="java.sql.Timestamp"
+        column="MAXDAILYPOSTDATE"
+        length="7"
+    />
+    <property
+        name="maxregisternum"
+        type="java.math.BigDecimal"
+        column="MAXREGISTERNUM"
+        length="22"
+    />
+    <property
+        name="maxregisterdate"
+        type="java.sql.Timestamp"
+        column="MAXREGISTERDATE"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

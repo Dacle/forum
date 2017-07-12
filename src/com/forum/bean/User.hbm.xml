@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.User" 
+    table="USERS"
+>
+
+    <id
+        name="userid"
+        type="java.math.BigDecimal"
+        column="USERID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="username"
+        type="java.lang.String"
+        column="USERNAME"
+        not-null="true"
+        unique="true"
+        length="40"
+    />
+    <property
+        name="userpwd"
+        type="java.lang.String"
+        column="USERPWD"
+        not-null="true"
+        length="40"
+    />
+    <property
+        name="typeid"
+        type="java.math.BigDecimal"
+        column="TYPEID"
+        length="22"
+    />
+    <property
+        name="stateid"
+        type="java.math.BigDecimal"
+        column="STATEID"
+        length="22"
+    />
+    <property
+        name="title"
+        type="java.lang.String"
+        column="TITLE"
+        not-null="true"
+        length="40"
+    />
+    <property
+        name="classify"
+        type="java.math.BigDecimal"
+        column="CLASSIFY"
+        length="22"
+    />
+    <property
+        name="ep"
+        type="java.math.BigDecimal"
+        column="EP"
+        length="22"
+    />
+    <property
+        name="cp"
+        type="java.math.BigDecimal"
+        column="CP"
+        length="22"
+    />
+    <property
+        name="power"
+        type="java.math.BigDecimal"
+        column="POWER"
+        length="22"
+    />
+    <property
+        name="email"
+        type="java.lang.String"
+        column="EMAIL"
+        length="100"
+    />
+    <property
+        name="lastip"
+        type="java.lang.String"
+        column="LASTIP"
+        length="100"
+    />
+    <property
+        name="lastdate"
+        type="java.sql.Timestamp"
+        column="LASTDATE"
+        length="7"
+    />
+    <property
+        name="registdate"
+        type="java.sql.Timestamp"
+        column="REGISTDATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="sex"
+        type="java.lang.String"
+        column="SEX"
+        not-null="true"
+        length="10"
+    />
+    <property
+        name="birthday"
+        type="java.sql.Timestamp"
+        column="BIRTHDAY"
+        length="7"
+    />
+    <property
+        name="postnum"
+        type="java.math.BigDecimal"
+        column="POSTNUM"
+        length="22"
+    />
+    <property
+        name="hottopic"
+        type="java.math.BigDecimal"
+        column="HOTTOPIC"
+        length="22"
+    />
+    <property
+        name="sign"
+        type="java.lang.String"
+        column="SIGN"
+        length="100"
+    />
+    <property
+        name="face"
+        type="java.sql.Blob"
+        column="FACE"
+        length="4000"
+    />
+    <property
+        name="width"
+        type="java.math.BigDecimal"
+        column="WIDTH"
+        length="22"
+    />
+    <property
+        name="height"
+        type="java.math.BigDecimal"
+        column="HEIGHT"
+        length="22"
+    />
+    <property
+        name="personnelweb"
+        type="java.lang.String"
+        column="PERSONNELWEB"
+        length="40"
+    />
+    <property
+        name="qq"
+        type="java.lang.String"
+        column="QQ"
+        length="50"
+    />
+    <property
+        name="intro"
+        type="java.lang.String"
+        column="INTRO"
+        length="1000"
+    />
+    <property
+        name="facestate"
+        type="java.math.BigDecimal"
+        column="FACESTATE"
+        length="22"
+    />
+    <property
+        name="signstate"
+        type="java.math.BigDecimal"
+        column="SIGNSTATE"
+        length="22"
+    />
+    <property
+        name="logintimes"
+        type="java.math.BigDecimal"
+        column="LOGINTIMES"
+        length="22"
+    />
+    <property
+        name="toptopic"
+        type="java.math.BigDecimal"
+        column="TOPTOPIC"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to Replypost -->
+    <set
+        name="replyposts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="USERID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Replypost"
+        />
+    </set>
+    <!-- bi-directional one-to-one association to Usertyperequest -->
+    <one-to-one
+        name="usertyperequest"
+        class="com.forum.bean.Usertyperequest"
+        outer-join="auto"
+    />
+    <!-- bi-directional one-to-many association to Mainboard -->
+    <set
+        name="mainboards"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="USERID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Mainboard"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Post -->
+    <set
+        name="posts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="USERID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Post"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Boardlog -->
+    <set
+        name="boardlogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="BOARDOWNERID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Boardlog"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Uploadfile -->
+    <set
+        name="uploadfiles"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="USERID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Uploadfile"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Secreplypost -->
+    <set
+        name="secreplyposts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="USERID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Secreplypost"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Forumannouncement -->
+    <set
+        name="forumannouncements"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="CREATERID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Forumannouncement"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Basicboard -->
+    <set
+        name="basicboards"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="USERID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Basicboard"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Managerecord -->
+    <set
+        name="managerecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="MANAGERID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Managerecord"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

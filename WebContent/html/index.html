@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>java bbs</title>
+    <link href="../css/mystyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/myjs.js"></script>
+    <script type="text/javascript" src="../js/iframe.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/loginbox.css" />
+</head>
+
+<body bgcolor="silver">
+    <div>
+        <br />
+        <iframe src="../html/header.html" frameborder="0" scrolling="no" id="frame_content" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>
+    </div>
+
+    <div style="height:160px;">
+        <div id="top_left">
+            <img src="../images/top_icon.png" style="width:300px;" />
+        </div>
+
+        <div id="top_right">
+            <br />
+            <span style="color:red;font-size:20px;">您还未登录！</span>
+            <a href="#" id="example" target="_self">|登录</a>
+            <a href="../html/register.html" id="example" target="_parent">|注册</a>
+            <div id="LoginBox">
+                <form method="post" action="">
+                    <table>
+                        <tr class="row1">
+                            <td>&nbsp;&nbsp;登录<td>
+                            <td ><a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a></td>
+                        </tr>
+                        <tr class="row">
+                            <td>用户名：</td>
+                            <td colspan="2">
+                                <input type="text" class="inputBox" id="txtName" size="20" />
+                                <a href="javascript:void(0)" title="提示" class="warning" id="warn">*</a>
+                            </td> 
+                        </tr>
+                        <tr class="row">
+                            <td>密码：</td>
+                            <td colspan="2">
+                                <input type="password" class="inputBox" id="txtPwd" size="20" />
+                                <a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <input type="button" class="login_row" id="loginbtn" value="登录" onclick="">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+        <iframe src="../html/board.html" frameborder="0" scrolling="no" id="frame_content" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>
+    </div>
+
+    <div>
+        <iframe src="../html/footer.html" frameborder="0" scrolling="no" id="frame_content" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>
+    </div>
+</body>
+</html>

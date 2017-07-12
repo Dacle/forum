@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<!-- 配置ForumSystem的ant文件，将ForumSystem包中的内容打成jar -->
+<project name= "forum" default="init" basedir=".">
+	<!-- 定义一些变量供后面使用 -->
+	<property name="forum.home" value="."/>
+	<property name="forum.lib" value="${forum.home}/WEB-INF/lib"/>
+	<property name="forum.jar" value="${forum.home}/WEB-INF/lib"/>
+	<property name="forum.classes" value="${forum.home}/WEB-INF/classes"/>
+	<!-- 配置Tomcat所在目录 -->
+	<property name="tomcat.home" value="D\:/app/apache-tomcat-8.0.30"/>
+	<target name="init">
+		<path id="all">
+			<!-- 初始化需要使用的jar -->
+			<fileset dir="${forum.lib}">
+				<include name="**/*.jar" />
+			</fileset>
+			<!-- 初始化需要使用的jar -->
+			<fileset dir="${tomcat.home}/lib">
+				<include name="*.jar" />
+			</fileset>
+		</path>
+		<mkdir dir="${forum.classes}" />
+	</target>
+	<!-- 清空生成的calss -->
+	<target name="clean">
+		<delete dir="${forum.classes}">
+		</delete>
+	</target>
+	<!-- 定义target，编译时需要依赖于init -->
+	<target name="compile" depends="init">
+		<!-- 编译时使用的版本是1.5 -->
+		<javac srcdir="${forum.home}/WEB-INF/src" destdir="${forum.classes}" target="1.8">
+			<classpath refid="all" />
+		</javac>
+	</target>
+	<!-- com.ForumSystem包下面的代码打成包，命名为ForumSystem.jar -->
+	<target name="jar" depends="compile">
+		<jar jarfile="${forum.jar}/ForumSystem.jar" basedir="${forum.classes}" includes="com/forum/**">
+		</jar>
+	</target>
+	<!-- 将ForumSystem项目打包成war文件 -->
+	<target name="war" depends="jar">
+		<war destfile="${forum.home}/forum.war" webxml="${forum.home}/WEB-INF/web.xml">
+			<fileset dir="${forum.home}" casesensitive="yes">
+				<include name="WEB-INF/**" />
+				<exclude name="*.war" />
+			</fileset>
+			<!-- 所依赖的jar -->
+			<lib dir="${forum.home}/WEB-INF/lib">
+				<include name="*.jar" />
+			</lib>
+		</war>
+	</target>
+</project>

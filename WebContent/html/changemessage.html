@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>change</title>
+    <link rel="stylesheet" type="text/css" href="../css/register.css" />
+    <link rel="stylesheet" type="text/css" href="../css/global.css" />
+</head>
+<body>
+    <div id="register">
+        <span style="color:blue;font-family:'Adobe Arabic';font-size:40px;">——修改信息——</span>
+        <form method="post" action="../html/register_success.html">
+            <table cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                    <td><label for="sname">用户名：</label></td>
+                    <td><input name="sname" id="sname" type="text" />（可包含 a-z、0-9 和下划线）</td>
+                </tr>
+                <tr>
+                    <td><label for="pass">密码：</label></td>
+                    <td><input name="pass" id="pass" type="password" />（至少包含 6 个字符）</td>
+                </tr>
+                <tr>
+                    <td><label for="rpass">再次输入密码：</label></td>
+                    <td><input name="rpass" id="rpass" type="password" /></td>
+                </tr>
+                <tr>
+                    <td><label for="email">电子邮箱：</label></td>
+                    <td><input name="email" id="email" type="text" />（必须包含 @ 字符）</td>
+                </tr>
+                <tr>
+                    <td><label for="gender">性别：</label></td>
+                    <td>
+                        <input name="gender" id="gender" type="radio" value="男" checked="checked" />
+                        <img src="images/male.gif" alt="alt" />男&nbsp;
+                        <input name="gender" type="radio" value="女" />
+                        <img src="images/female.gif" alt="alt" />女
+                    </td>
+                </tr>
+                <tr>
+                    <td>头像：</td>
+                    <td><input type="file" id="input_file" /></td>
+                </tr>
+                <tr>
+                    <td><label for="hobby">爱好：</label></td>
+                    <td>
+                        <input type="checkbox" name="hobby1" id="hobby" value="checkbox" />&nbsp;运动&nbsp;&nbsp;
+                        <input type="checkbox" name="hobby2" value="checkbox" />&nbsp;聊天&nbsp;&nbsp;
+                        <input type="checkbox" name="hobby3" value="checkbox" />&nbsp;玩游戏
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="nYear">出生日期：</label></td>
+                    <td>
+                        <input name="nYear" id="nYear" value="yyyy" maxlength="4" />&nbsp;年&nbsp;&nbsp;
+                        <select name="nMonth" style="width:120px;height:20px;border-radius:5px;">
+                            <option value="" selected="selected">[选择月份]</option>
+                            <option value="0">一月</option>
+                            <option value="1">二月</option>
+                            <option value="2">三月</option>
+                            <option value="3">四月</option>
+                            <option value="4">五月</option>
+                            <option value="5">六月</option>
+                            <option value="6">七月</option>
+                            <option value="7">八月</option>
+                            <option value="8">九月</option>
+                            <option value="9">十月</option>
+                            <option value="10">十一月</option>
+                            <option value="11">十二月</option>
+                        </select>
+                        月&nbsp;&nbsp;<input name="nDay" value="dd" maxlength="2" />日
+
+                    </td>
+                </tr>
+            </table>
+            <div></div>
+            <input type="submit" name="submit" id="input_btn" value="提交" />&nbsp;&nbsp;
+            <input type="reset" name="reset" id="input_btn" value="取消" />
+        </form>
+    </div>
+</body>
+</html>

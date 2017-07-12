@@ -1,0 +1,32 @@
+﻿<script src="http://img.jb51.net/jslib/jquery/jquery14.js"></script>
+<script type="text/javascript">
+    //全选
+    function CheckedAll() {
+        $(':checkbox').attr('checked', 'checked');
+    }
+
+    //全不选
+    function CheckedNo() {
+        $(':checkbox').attr('checked', '');
+    }
+
+    //反选
+    function CheckedRev() {
+        var arr = $(':checkbox');
+        for (var i = 0; i < arr.length; i++) {
+            arr[i].checked = !arr[i].checked;
+        }
+    }
+</script>
+<body>
+    <div>
+        
+        <input name="subBox" type="checkbox" />
+        <input name="subBox" type="checkbox" />
+        <input name="subBox" type="checkbox" />
+        <input name="subBox" type="checkbox" />
+    </div>
+    <input type="button" name="btnCheckedAll" value="全　选" onclick="javascript:CheckedAll();" />
+    <input type="button" name="btnCheckedNo" value="全不选" onclick="javascript:CheckedNo();" />
+    <input type="button" name="btnCheckedRev" value="反　选" onclick="javascript:CheckedRev();" />
+</body> 

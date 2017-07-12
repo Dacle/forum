@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Basicboard" 
+    table="BASICBOARD"
+>
+
+    <id
+        name="boardid"
+        type="java.math.BigDecimal"
+        column="BOARDID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="boardname"
+        type="java.lang.String"
+        column="BOARDNAME"
+        not-null="true"
+        unique="true"
+        length="100"
+    />
+    <property
+        name="parentid"
+        type="java.math.BigDecimal"
+        column="PARENTID"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="readme"
+        type="java.lang.String"
+        column="README"
+        length="4000"
+    />
+    <property
+        name="postnum"
+        type="java.math.BigDecimal"
+        column="POSTNUM"
+        length="22"
+    />
+    <property
+        name="buildtime"
+        type="java.sql.Timestamp"
+        column="BUILDTIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="clicknum"
+        type="java.math.BigDecimal"
+        column="CLICKNUM"
+        length="22"
+    />
+    <property
+        name="indeximg"
+        type="java.lang.String"
+        column="INDEXIMG"
+        length="1000"
+    />
+    <property
+        name="hottopicnum"
+        type="java.math.BigDecimal"
+        column="HOTTOPICNUM"
+        length="22"
+    />
+    <property
+        name="toptopicnum"
+        type="java.math.BigDecimal"
+        column="TOPTOPICNUM"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to User -->
+    <many-to-one
+        name="user"
+        class="com.forum.bean.User"
+        not-null="true"
+    >
+        <column name="USERID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Userstate -->
+    <many-to-one
+        name="userstate"
+        class="com.forum.bean.Userstate"
+        not-null="true"
+    >
+        <column name="STATEID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to Forumsystemlog -->
+    <set
+        name="forumsystemlogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="MOSTACTIVEBOARDID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Forumsystemlog"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Post -->
+    <set
+        name="posts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="BOARDID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Post"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Boardlog -->
+    <set
+        name="boardlogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="BOARDID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Boardlog"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Managerecord -->
+    <set
+        name="managerecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="BOARDID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Managerecord"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to Mainboard -->
+    <many-to-one
+        name="mainboard"
+        class="com.forum.bean.Mainboard"
+        not-null="true"
+    >
+        <column name="ROOTID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

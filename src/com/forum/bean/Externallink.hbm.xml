@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Externallink" 
+    table="EXTERNALLINK"
+>
+
+    <id
+        name="linkid"
+        type="java.math.BigDecimal"
+        column="LINKID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="linkname"
+        type="java.lang.String"
+        column="LINKNAME"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="linkurl"
+        type="java.lang.String"
+        column="LINKURL"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="linkorder"
+        type="java.math.BigDecimal"
+        column="LINKORDER"
+        length="22"
+    />
+    <property
+        name="linklogo"
+        type="java.sql.Blob"
+        column="LINKLOGO"
+        length="4000"
+    />
+    <property
+        name="linkdescription"
+        type="java.lang.String"
+        column="LINKDESCRIPTION"
+        length="4000"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

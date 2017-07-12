@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Uploadfile" 
+    table="UPLOADFILE"
+>
+
+    <id
+        name="fileid"
+        type="java.math.BigDecimal"
+        column="FILEID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="filename"
+        type="java.lang.String"
+        column="FILENAME"
+        not-null="true"
+        length="40"
+    />
+    <property
+        name="content"
+        type="java.sql.Clob"
+        column="CONTENT"
+        length="4000"
+    />
+    <property
+        name="uploaddate"
+        type="java.sql.Timestamp"
+        column="UPLOADDATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="describe"
+        type="java.lang.String"
+        column="DESCRIBE"
+        length="1000"
+    />
+    <property
+        name="filesize"
+        type="java.math.BigDecimal"
+        column="FILESIZE"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="downloadtimes"
+        type="java.math.BigDecimal"
+        column="DOWNLOADTIMES"
+        length="22"
+    />
+    <property
+        name="postid"
+        type="java.math.BigDecimal"
+        column="POSTID"
+        not-null="true"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to User -->
+    <many-to-one
+        name="user"
+        class="com.forum.bean.User"
+        not-null="true"
+    >
+        <column name="USERID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

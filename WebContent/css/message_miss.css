@@ -1,0 +1,11 @@
+﻿body {
+}
+div.bg tr td {
+    height: 233px;
+    width: 253px;
+    background-image:url(../images/miss.png);
+    font-family: 'Adobe Arabic';
+    font-size: larger;
+    align-content: center;
+}
+

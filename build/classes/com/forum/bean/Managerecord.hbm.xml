@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Managerecord" 
+    table="MANAGERECORD"
+>
+
+    <id
+        name="managerecordid"
+        type="java.math.BigDecimal"
+        column="MANAGERECORDID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="bemanageduserid"
+        type="java.math.BigDecimal"
+        column="BEMANAGEDUSERID"
+        length="22"
+    />
+    <property
+        name="describe"
+        type="java.lang.String"
+        column="DESCRIBE"
+        not-null="true"
+        length="400"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to User -->
+    <many-to-one
+        name="user"
+        class="com.forum.bean.User"
+        not-null="true"
+    >
+        <column name="MANAGERID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Managetype -->
+    <many-to-one
+        name="managetype"
+        class="com.forum.bean.Managetype"
+        not-null="true"
+    >
+        <column name="MANAGETYPEID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Basicboard -->
+    <many-to-one
+        name="basicboard"
+        class="com.forum.bean.Basicboard"
+        not-null="true"
+    >
+        <column name="BOARDID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Post -->
+    <many-to-one
+        name="post"
+        class="com.forum.bean.Post"
+        not-null="true"
+    >
+        <column name="POSTID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

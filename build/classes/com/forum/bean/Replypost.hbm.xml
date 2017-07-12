@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Replypost" 
+    table="REPLYPOST"
+>
+
+    <id
+        name="replypostid"
+        type="java.math.BigDecimal"
+        column="REPLYPOSTID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="fileid"
+        type="java.math.BigDecimal"
+        column="FILEID"
+        length="22"
+    />
+    <property
+        name="replytitle"
+        type="java.lang.String"
+        column="REPLYTITLE"
+        length="100"
+    />
+    <property
+        name="replycontent"
+        type="java.lang.String"
+        column="REPLYCONTENT"
+        length="4000"
+    />
+    <property
+        name="replytime"
+        type="java.sql.Timestamp"
+        column="REPLYTIME"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to User -->
+    <many-to-one
+        name="user"
+        class="com.forum.bean.User"
+        not-null="true"
+    >
+        <column name="USERID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Post -->
+    <many-to-one
+        name="post"
+        class="com.forum.bean.Post"
+        not-null="true"
+    >
+        <column name="POSTID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to Secreplypost -->
+    <set
+        name="secreplyposts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="REPLYPOSTID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Secreplypost"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

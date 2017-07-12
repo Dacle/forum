@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>replypost</title>
+    <link rel="stylesheet" href="../css/replypost.css" type="text/css" />
+    <script type="text/javascript" src="../js/replypost.js"></script>
+
+    <script language="javascript" type="text/javascript">
+
+        //获得当前时间,刻度为一千分一秒
+        //var initializationTime=(new Date()).getTime();
+        function returnTime() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth();
+            var day = now.getDate();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            var temp = document.getElementsByTagName("label");
+            for (var i = 0; i < temp.length; i++) {
+                if(temp[i].id == "showtime")
+                temp[i].innerHTML = year + '/' + month + '/' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+            }
+
+           
+          
+            //一秒刷新一次显示时间
+            //var timeID=setTimeout(getTime,1000);
+        }
+        //
+    </script>
+
+</head>
+<body>
+    <label id="showtime">
+        <script type="text/javascript">returnTime();</script>
+    </label>
+    <ul id="pn">
+        <li class="list0">
+            <div class="head"><img src="../images/face/face1.png" alt="" /></div>
+
+            <div class="content">
+
+                <p class="text"><span class="name">userName：</span>replypost.content 例如：这个楼主说的什么鬼啊，哈哈哈哈哈hhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
+                <div class="pic"><img src="" alt="alt" /></div>
+                <div class="good">
+                    <span class="date">
+                        第几楼 |<label id="showtime">
+                            <script type="text/javascript">returnTime();</script>
+                        </label>|
+                    </span>
+                </div>
+
+                <div class="comment-list">
+
+                    <div class="comment">
+                        <div class="comment-left"><img src="" alt="alt" /></div>
+                        <div class="comment-right">
+                            <div class="comment-text"><span class="user">userName：</span>我住隔壁我姓王</div>
+                            <div class="comment-date">
+                                <label id="showtime">
+                                    <script type="text/javascript">returnTime();</script>
+                                </label>|
+                                <a class="comment-dele" href="javascript:;">回复</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-left"><img src="" alt="alt" /></div>
+                        <div class="comment-right">
+                            <div class="comment-text"><span class="user">userName：</span>我住隔壁我姓王</div>
+                            <div class="comment-date">
+                                <label id="showtime">
+                                    <script type="text/javascript">returnTime();</script>
+                                </label>|
+                                <a class="comment-dele" href="javascript:;">回复</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="hf">
+                    <textarea class="hf-text" maxlength="100">评论…</textarea>
+                    <button class="hf-btn">回复</button>
+                    <span class="hf-nub">0/100</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

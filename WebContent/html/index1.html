@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>java bbs</title>
+    <link href="../css/mystyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/myjs.js"></script>
+    <script type="text/javascript" src="../js/iframe.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/loginbox.css" />
+</head>
+
+<body bgcolor="silver">
+    <div>
+        <br />
+        <iframe src="../html/header.html" frameborder="0" scrolling="no" id="frame_content" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>
+    </div>
+
+    <div style="height:160px;">
+        <div id="top_left">
+            <img src="../images/top_icon.png" style="width:300px;" />
+        </div>
+
+        <div id="top_right">
+            <br />
+            <span style="color:red;font-size:20px;">返回的用户名</span>
+            <a href="../html/changemessage.html" id="example" target="_parent">|设置</a>
+            <a href="../html/index.html" id="example" target="_parent">|注销</a>
+            </div>
+        </div>
+
+    <div>
+        <iframe src="../html/board.html" frameborder="0" scrolling="no" id="frame_content" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>
+    </div>
+
+    <div>
+        <iframe src="../html/footer.html" frameborder="0" scrolling="no" id="frame_content" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>
+    </div>
+</body>
+</html>

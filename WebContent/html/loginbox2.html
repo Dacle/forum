@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>loginbox</title>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/loginbox.css" />
+    <link rel="stylesheet" type="text/css" href="../css/mystyle.css" />
+</head>
+<body>
+    <br />
+    <div id="top_left">
+        <img src="../images/top_icon.png" style="width:300px;" />
+    </div>
+    <div id="top_right">
+        <br />
+        <span style="color:red;font-size:20px;">返回的用户名</span>
+        <a href="../html/changemessage.html" id="example" target="_parent">| 设置</a>&nbsp;&nbsp;&nbsp;
+        <a href="../html/index.html" id="example" target="_parent">&nbsp;| 注销</a>
+        <div id="LoginBox">
+            <div class="row1">
+                登录窗口<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+            </div>
+            <div class="row">
+                用户名: <span class="inputBox">
+                    <input type="text" id="txtName" placeholder="用户名" />
+                </span>
+                <a href="javascript:void(0)" title="提示" class="warning" id="warn">*</a>
+            </div>
+            <div class="row">
+                密&nbsp;&nbsp;&nbsp;&nbsp;码: <span class="inputBox">
+                    <input type="text" id="txtPwd" placeholder="密码" />
+                </span>
+                <a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+            </div>
+            <br />
+            <div class="login_row">
+                <a href="#" id="loginbtn">登录</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

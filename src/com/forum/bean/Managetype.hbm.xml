@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Managetype" 
+    table="MANAGETYPES"
+>
+
+    <id
+        name="managetypeid"
+        type="java.math.BigDecimal"
+        column="MANAGETYPEID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="typename"
+        type="java.lang.String"
+        column="TYPENAME"
+        not-null="true"
+        length="40"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to Managerecord -->
+    <set
+        name="managerecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="MANAGETYPEID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Managerecord"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

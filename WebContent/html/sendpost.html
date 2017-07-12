@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../css/mystyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/forpost.css" type="text/css" />
+    <script type="text/javascript" src="../js/iframe.js"></script>
+    <script type="text/javascript" src="../js/post.js"></script>
+</head>
+<body bgcolor="silver">
+    <iframe src="../html/header.html" frameborder="0" scrolling="no" id="frame_content" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>
+    <div id="nav">
+        <a href="../html/index.html">ME-BBS</a><em>&gt;</em>
+        <a href="../html/index.html">ME-BBS</a><em>&gt;</em>
+        <a href="../html/index.html">ME-BBS</a><em>&gt;</em>
+    </div>
+  
+    <div>
+        <dl>
+            <dt>AAA</dt>
+            <dd>BBB</dd>
+            <dd>CCC</dd>
+            <dd>DDD</dd>
+            <dd>EEE</dd>
+        </dl>
+    </div>
+
+
+    <div class="title">
+        <h1>发布帖子</h1>
+    </div>
+
+    <form accept-charset="UTF-8" action="" class="" id="" method="post">
+        <table width="80%" border="1" cellspacing="5" cellpadding="5" align="center">
+            <colgroup><col width="140" /><col /></colgroup>
+            <tr>
+                <th id="postTitle">文章标题</th>
+                <td>
+                    <label>
+                        <input  maxlength="80" size="60" type="text" />
+                        <span>你还可以输入80个字符</span>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <th valign="top" id="postContent">文章内容</th>
+                <td>
+                    <textarea cols="60" rows="20"></textarea>
+                    <div>
+                        <span>你还可以输入10000个字符</span>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <th valign="top">附件</th>
+                <td>
+                    <input type="file" id="selct" multiple="multiple" />
+                    <div>
+                        <span>(附件2M内，不多余10个)</span>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <th>选择版块</th>
+                <td>
+                    <select>
+                        <option value="" selected="selected">-帖子版块-</option>
+                        <option value="">JAVA</option>
+                        <option value="">JAVA WEB</option>
+                        <option value="">Android</option>
+                    </select>
+                    <select>
+                        <option value="">-帖子类型-</option>
+                        <option value="">普通主题</option>
+                        <option value="">投票主题</option>
+                        <option value="">公告</option>
+                    </select>
+                    <label style="color:red;font-family:'Adobe Arabic';font-size:16px;">请选择所要发帖的版块</label>
+                </td>
+            </tr>
+
+            <tr>
+                <th>&nbsp;</th>
+                <td>
+                    <div class="">
+                        <input id="btn_commit" name="commit" type="submit" value="发表帖子" style="margin-left:450px;"/>
+                    </div>
+                    <ol class="notice">
+                        <li>这里发言，表示您接受了ME-BBS论坛的用户<a href="#" target="_blank" style="color:red;">行为准则</a>。</li>
+                        <li>请对您的言行负责，并遵守中华人民共和国有关法律法规,尊重网上道德。</li>
+                        <li>转载文章请注明出自"ME-BBS(www.mebbs.net）"。如是商业用途请联系原作者。</li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿#nav a {
+    text-decoration: none;
+    font-family: 'Adobe Arabic';
+    font-size: 25px;
+}
+    #nav a:hover {
+        color: green;
+        font-style: italic;
+    }
+
+.title {
+    font-family: 'Adobe Arabic';
+    color: blue;
+}
+
+form {
+    border-radius: 5px;
+}
+
+    form table {
+        border-radius: 5px;
+        border-color: silver;
+    }
+
+        form table tr {
+            height: auto;
+        }
+
+            form table tr th {
+                font-family: 'Adobe Arabic';
+                font-size: 18px;
+                color: black;
+            }
+
+            form table tr td {
+                font-size: 15px;
+                font-family: 'Adobe Arabic';
+            }
+
+                form table tr td span {
+                    color: #ff6a00;
+                }
+
+#btn_commit {
+    border-radius: 5px;
+    font-family: 'Adobe Arabic';
+    font-size: 16px;
+    color: red;
+}
+
+#top_post {
+    padding-top: 50px;
+    width: 80%;
+    padding-left: 10%;
+    padding-bottom: 10px;
+}
+
+#left_post {
+    padding-left: 10%;
+    float: left;
+    width: 25%;
+}
+
+#right_post {
+    padding-right: 10%;
+    float: right;
+    width: 55%;
+}
+
+#post {
+    border-radius: 5px;
+    border: groove;
+    border-color: #00ff21;
+    height: 300px;
+}
+
+#left_post form table tr{
+   height: auto;
+}
+
+    #left_post form table tr td {
+        width: 100px;
+        font-size: 20px;
+        font-family: KaiTi;
+    }
+
+        #left_post form table tr td img {
+            width: 100px;
+        }
+
+#right_post ul li {
+    list-style-type: none;
+    font-size: 20px;
+    font-family: STSong;
+}
+
+#right_post #btn_reply {
+    font-size: 18px;
+    float: right;
+    padding-top: 50px;
+}
+

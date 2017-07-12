@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Boardlog" 
+    table="BOARDLOG"
+>
+
+    <id
+        name="boardlogid"
+        type="java.math.BigDecimal"
+        column="BOARDLOGID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="boardlogdate"
+        type="java.sql.Timestamp"
+        column="BOARDLOGDATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="postnum"
+        type="java.math.BigDecimal"
+        column="POSTNUM"
+        length="22"
+    />
+    <property
+        name="viewnum"
+        type="java.math.BigDecimal"
+        column="VIEWNUM"
+        length="22"
+    />
+    <property
+        name="replynum"
+        type="java.math.BigDecimal"
+        column="REPLYNUM"
+        length="22"
+    />
+    <property
+        name="todaybestpostid"
+        type="java.math.BigDecimal"
+        column="TODAYBESTPOSTID"
+        length="22"
+    />
+    <property
+        name="deletepostnum"
+        type="java.math.BigDecimal"
+        column="DELETEPOSTNUM"
+        length="22"
+    />
+    <property
+        name="remark"
+        type="java.lang.String"
+        column="REMARK"
+        length="400"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to User -->
+    <many-to-one
+        name="user"
+        class="com.forum.bean.User"
+        not-null="true"
+    >
+        <column name="BOARDOWNERID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Basicboard -->
+    <many-to-one
+        name="basicboard"
+        class="com.forum.bean.Basicboard"
+        not-null="true"
+    >
+        <column name="BOARDID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Post -->
+    <many-to-one
+        name="post"
+        class="com.forum.bean.Post"
+        not-null="true"
+    >
+        <column name="TODAYBESTREPLYID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

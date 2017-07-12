@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Friend" 
+    table="FRIEND"
+>
+
+    <composite-id name="comp_id" class="com.forum.bean.FriendPK">
+        <key-property 
+            name="friendid" 
+            column="FRIENDID" 
+            type="java.math.BigDecimal"
+            length="22"
+        />
+        <key-property 
+            name="userid" 
+            column="USERID" 
+            type="java.math.BigDecimal"
+            length="22"
+        />
+    </composite-id>    
+
+    <property
+        name="username"
+        type="java.lang.String"
+        column="USERNAME"
+        not-null="true"
+        length="40"
+    />
+    <property
+        name="friendname"
+        type="java.lang.String"
+        column="FRIENDNAME"
+        not-null="true"
+        length="40"
+    />
+    <property
+        name="adddate"
+        type="java.sql.Timestamp"
+        column="ADDDATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="message"
+        type="java.sql.Clob"
+        column="MESSAGE"
+        length="4000"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

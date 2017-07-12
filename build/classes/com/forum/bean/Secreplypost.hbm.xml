@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Secreplypost" 
+    table="SECREPLYPOST"
+>
+
+    <id
+        name="secreplypostid"
+        type="java.math.BigDecimal"
+        column="SECREPLYPOSTID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="replycontent"
+        type="java.lang.String"
+        column="REPLYCONTENT"
+        not-null="true"
+        length="4000"
+    />
+    <property
+        name="replytime"
+        type="java.sql.Timestamp"
+        column="REPLYTIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="secid"
+        type="java.math.BigDecimal"
+        column="SECID"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to User -->
+    <many-to-one
+        name="user"
+        class="com.forum.bean.User"
+        not-null="true"
+    >
+        <column name="USERID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Replypost -->
+    <many-to-one
+        name="replypost"
+        class="com.forum.bean.Replypost"
+        not-null="true"
+    >
+        <column name="REPLYPOSTID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

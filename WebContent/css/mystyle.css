@@ -1,0 +1,129 @@
+﻿body {
+    margin: 0; 
+    padding: 0;
+}
+
+.table{
+    border: thin;
+    height: 80px;
+    color: blue;
+    font-family: KaiTi;
+    font-size: 15px;
+}
+/*表格格式设置*/
+
+a:hover {
+    font-size: larger;
+    color: red;
+}
+/*伪装，鼠标上移变色*/
+
+#link_bar {
+    height: 20px;
+    align-content: center;
+}
+
+#top_left {
+    float: left;
+    width: 70%;
+    height: 100px;
+}
+/*div浮动，下同*/
+
+#top_right {
+    float: left;
+    width: 30%;
+    height: 100px;
+}
+
+div.menu ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+/* div.menu中的ul中的li样式 */
+
+div.menu ul li {
+    text-align: center;
+    float: left;
+}
+/*class="div.menu"靠左浮动，则居中类似导航栏*/
+
+div.menu ul li a, div.menu ul li a:visited {
+    background-color: #dde4ec;
+    border: 1px #bfcbd6 solid;
+    color: #0094ff; 
+    display: block;/* 此元素将显示为块级元素，此元素前后会带有换行符 */
+    line-height: 18px; 
+    padding: 4px 10px;
+    text-decoration: none; 
+    white-space: nowrap;
+    align-items: center;
+}
+
+div.menu ul li a:hover {
+    background-color: #bfcbd6;
+    color: #465c71;
+    text-decoration: none;
+}
+/* class="div.menu"中a标签鼠标点击元素时的样式*/
+
+div.menu ul li a:active {
+    background-color: #465c71;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+
+/*———————————————————————————*/
+
+div.menu dl {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+/* div.menu中的ul中的li样式 */
+
+div.menu dl dd {
+    text-align: center;
+    float: left;
+}
+/*class="div.menu"靠左浮动，则居中类似导航栏*/
+
+div.menu dl dd a, div.menu dl dd a:visited {
+    background-color: #dde4ec;
+    border: 1px #bfcbd6 solid;
+    color: #0094ff; 
+    display: block;/* 此元素将显示为块级元素，此元素前后会带有换行符 */
+    line-height: 18px; 
+    padding: 4px 10px;
+    text-decoration: none; 
+    white-space: nowrap;
+    align-items: center;
+}
+
+div.menu dl dd a:hover {
+    background-color: #bfcbd6;
+    color: #465c71;
+    text-decoration: none;
+}
+/* class="div.menu"中a标签鼠标点击元素时的样式*/
+
+div.menu dl dd a:active {
+    background-color: #465c71;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+
+.pull {
+    border: #ccc 1px solid;
+    border-bottom: none;
+    background: #f1f1f1;
+    margin: -1px 0 0 -1px;
+}
+iframe {
+    width: 100%;
+    border: none;
+    margin: 0 0 1em;
+}

@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.forum.bean.Post" 
+    table="POST"
+>
+
+    <id
+        name="postid"
+        type="java.math.BigDecimal"
+        column="POSTID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="posttitle"
+        type="java.lang.String"
+        column="POSTTITLE"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="postcontent"
+        type="java.lang.String"
+        column="POSTCONTENT"
+        not-null="true"
+        length="4000"
+    />
+    <property
+        name="sendtime"
+        type="java.sql.Timestamp"
+        column="SENDTIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="totalviewnum"
+        type="java.math.BigDecimal"
+        column="TOTALVIEWNUM"
+        length="22"
+    />
+    <property
+        name="totalreplynum"
+        type="java.math.BigDecimal"
+        column="TOTALREPLYNUM"
+        length="22"
+    />
+    <property
+        name="zannum"
+        type="java.math.BigDecimal"
+        column="ZANNUM"
+        length="22"
+    />
+    <property
+        name="totop"
+        type="java.math.BigDecimal"
+        column="TOTOP"
+        length="22"
+    />
+    <property
+        name="tohot"
+        type="java.math.BigDecimal"
+        column="TOHOT"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Boardpoststate -->
+    <many-to-one
+        name="boardpoststate"
+        class="com.forum.bean.Boardpoststate"
+        not-null="true"
+    >
+        <column name="POSTSTATEID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to User -->
+    <many-to-one
+        name="user"
+        class="com.forum.bean.User"
+        not-null="true"
+    >
+        <column name="USERID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Basicboard -->
+    <many-to-one
+        name="basicboard"
+        class="com.forum.bean.Basicboard"
+        not-null="true"
+    >
+        <column name="BOARDID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to Replypost -->
+    <set
+        name="replyposts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="POSTID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Replypost"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Forumsystemlog -->
+    <set
+        name="forumsystemlogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="TODAYBESTPOSTID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Forumsystemlog"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Boardlog -->
+    <set
+        name="boardlogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="TODAYBESTREPLYID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Boardlog"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Managerecord -->
+    <set
+        name="managerecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="POSTID" />
+        </key>
+        <one-to-many 
+            class="com.forum.bean.Managerecord"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to Posttype -->
+    <many-to-one
+        name="posttype"
+        class="com.forum.bean.Posttype"
+        not-null="true"
+    >
+        <column name="POSTTYPEID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

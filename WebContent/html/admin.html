@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>选项卡式导航</title>
+    <link rel="stylesheet" href="../css/formybbs.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/register.css" />
+    <script src="../js/bbs_sort.js" type="text/javascript"></script>
+    <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../js/mybbs.js" type="text/javascript"></script>
+    <script src="../js/admin.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="title">
+            <!--总页面标题栏-->
+            <ul>
+                <li id="tag1"><a href="#" onclick="switchTag('tag1','content1');this.blur();"><span>版块管理</span></a></li>
+                <li id="tag2"><a href="#" onclick="switchTag('tag2','content2');this.blur();"><span>帖子管理</span></a></li>
+                <li id="tag3"><a href="#" onclick="switchTag('tag3','content3');this.blur();"><span>用户管理</span></a></li>
+            </ul>
+        </div>
+
+        <div id="content" class="content1">
+            <!--第一页，默认-->
+            <div id="content1">
+
+                <div>
+                    <input type="button" value="搜索版块" id="btnBoard" />
+                    <input type="button" value="提交" id="btnSubmit1" />
+                    <form id="boardForm" name="boardForm">
+                        <table border="0" cellspacing="0" cellpadding="0" id="addboard">
+                            <tr class="title">
+                                <th>板块名</th>
+                                <th>操作</th>
+                            </tr>
+                            <tbody id="tbody1"></tbody>
+                            <tr>
+                                <td colspan="2" style="height:30px;">
+                                    <input name="addOrder" type="button" value="增加公告" onclick="addRow()" />
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <br />
+                <br />
+
+                <div>
+                    <input type="button" value="版主管理" id="btnModerator" />
+                    <input type="button" value="提交" id="btnSubmit2" />
+                    <form id="moderatorForm" name="moderatorForm">
+                        <table border="0" cellspacing="0" cellpadding="0" id="searchModerator">
+                            <tr class="title">
+                                <th>板块名</th>
+                                <th>板块管理员</th>
+                                <th>操作</th>
+                            </tr>
+                            <tbody id="tbody2"></tbody>
+                            <tr>
+                                <td colspan="2" style="height:30px;">
+                                    <input type="button" value="增加版块" onclick="addModerator()" />
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+            </div>
+
+            <div id="content2" class="hidecontent">
+                <div>
+                    <input type="button" value="主题管理" id="btnTheme" /> 
+                    <br />
+                    <hr />
+                   
+                    <form id="themeForm" name="themeForm">
+                        <table border="0" cellspacing="0" cellpadding="0" id="addTheme">
+                            <tr class="title">
+                                <th>[ ]</th>
+                                <th>标题</th>
+                                <th>版块</th>
+                                <th>作者</th>
+                                <th>发布时间</th>     
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" /></td>
+                                <td>A</td>
+                                <td>B</td>
+                                <td>C</td>
+                                <td>D</td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="checkbox" /></td>
+                                <td>A</td>
+                                <td>B</td>
+                                <td>C</td>
+                                <td>D</td>
+                            </tr>
+                            <tbody id="tbody21"></tbody> 
+                        </table>
+                        <input type="button" name="btnCheckedAll" value="全选/全不选" onclick="javascript:CheckedAll(this);" />
+                        <!--<input type="button" name="btnCheckedNo" value="全不选" onclick="javascript:CheckedNo();" />-->
+                        <input type="button" name="btnCheckedRev" value="反　选" onclick="javascript:CheckedRev();" />
+                        <input type="button" value="删除" id="deleteTheme" />
+                    </form>
+                </div>
+            </div>
+
+            <div id="content3" class="hidecontent">
+
+                <div>
+                    <div>
+                        <label></label>
+                        <input type="button" value="搜索版块" id="btBoard" />
+                    </div>
+                </div>
+
+                <div>
+                    <table border="1" align="center">
+                        <thead>
+                            <tr>
+                                <th>版块ID</th>
+                                <th>版块名</th>
+                                <th>版块描述</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="content4" class="hidecontent">
+                <div>
+                    <div>
+                        <label></label>
+                        <input type="button" value="查看举报" id="btReport" />
+                    </div>
+                </div>
+
+                <div>
+                    <table border="1" align="center">
+                        <thead>
+                            <tr>
+                                <th>帖子主题标题</th>
+                                <th>举报人</th>
+                                <th>举报时间</th>
+                                <th>原因</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div><!--    --------主页面结尾---------       -->
+
+    </div>
+</body>
+</html>
